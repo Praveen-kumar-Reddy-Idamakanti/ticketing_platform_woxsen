@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* CSS Code Below */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #020000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .register-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    .register-container h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .register-container input {
+      width: 90%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .register-container button {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 1rem 0;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .register-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .links {
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    .links a {
+      color: #007bff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    .social-register {
+      margin-top: 1rem;
+    }
+
+    .social-register p {
+      margin-bottom: 1rem;
+      color: #666;
+    }
+
+    .social-register a {
+      display: inline-block;
+      margin: 0 0.5rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .social-register .google {
+      background-color: #db4437;
+    }
+
+    .social-register .github {
+      background-color: #333;
+    }
+
+    .social-register a:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Register-user</h2>
+    <form action="/submit_register_users" method="POST">
+      <input type="text" name="full_name" id="full_name" placeholder="Full Name" required>
+      <input type="email" name="email" id="email" placeholder="Email" required>
+      <input type="password"name="password" id="password" placeholder="Password" required>
+      <input type="password" name="confirm_password" id="confirm_password"placeholder="Confirm Password" required>
+      <button type="submit">Register</button>
+    </form>
+
+    <div class="links">
+      <p>Already have an account? <a href="/">Login here</a></p>
+    </div>
+
+    <div class="social-register">
+      <p>Or register with:</p>
+      <a href="https://accounts.google.com" class="google">
+        <i class="fab fa-google"></i> Google
+      </a>
+      <a href="https://github.com/login" class="github">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+  </div>
+</body>
+</html>

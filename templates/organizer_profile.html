@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #6f6060;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+        .nav {
+            background-color: #1e1c1c;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            background-color: #6f6060;
+            border-radius: 10px;
+        }
+
+h1 {
+    margin: 0;
+}
+
+section {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
+}
+.footer a {
+    display: block;
+    text-align: center;
+    background: #007BFF;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 230px;
+   
+}
+
+.footer a:hover {
+    background: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{ organizer.full_name }}</h1>
+        <p>Email: {{ organizer.email }}</p>
+    </header>
+    <nav class="nav">
+        <a href="/home_for_organizers">Home</a>
+        <a href="/manage_events">Manage Events</a>
+        <a href="#">Tickets & Sales</a>
+        <a href="#">Reports</a>
+        <a href="/organizer_profile">Profile</a>
+        <a href="/logout_organizer">Logout</a>
+    </nav>
+    <section>
+        <h2>Your Events</h2>
+        {% if events %}
+            <ul>
+                {% for event in events %}
+                    <li>
+                        <strong>{{ event.event_name }}</strong> <br>
+                        {{ event.event_description }} <br>
+                         Date: {{ event.event_date }} <br>
+                         Location: {{ event.event_location }}
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No events created yet.</p>
+        {% endif %}
+    </section>
+
+    <footer class="footer">
+        <a href="{{ url_for('manage_events') }}">Manage Events</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+
+    </footer>
+</body>
+</html>

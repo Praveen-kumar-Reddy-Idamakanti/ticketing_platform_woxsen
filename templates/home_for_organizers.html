@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #6f6060;
+            color: white;
+            padding: 15px;  
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1e1c1c;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            background-color: #6f6060;
+            border-radius: 10px;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: aliceblue;
+        }
+
+        .card {
+            background-color:#a48e8e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 18px;
+        }
+
+        .btn {
+            background-color: #000000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to Your Event Organizer Dashboard</h1>
+    </header>
+
+    <nav>
+        <a href="/home_for_organizers">Home</a>
+        <a href="/manage_events">Manage Events</a>
+        <a href="#">Tickets & Sales</a>
+        <a href="#">Reports</a>
+        <a href="/organizer_profile">Profile</a>
+        <a href="/logout_organizer">Logout</a>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>Manage Your Events</h2>
+            <p>Create, edit, and view your events all in one place.</p>
+            <a href="/manage_events" class="btn">Go to Events</a>
+        </div>
+
+        <div class="card">
+            <h2>Track Ticket Sales</h2>
+            <p>Monitor your ticket sales and make adjustments as needed.</p>
+            <a href="#" class="btn">View Sales</a>
+        </div>
+
+        <div class="card">
+            <h2>View Reports</h2>
+            <p>Access detailed reports on event performance, attendance, and more.</p>
+            <a href="#" class="btn">View Reports</a>
+        </div>
+
+        <div class="card">
+            <h2>Your Profile</h2>
+            <p>Update your personal information and manage account settings.</p>
+            <a href="#" class="btn">Edit Profile</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

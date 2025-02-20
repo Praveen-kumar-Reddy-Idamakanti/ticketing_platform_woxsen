@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer - Ticket Sales</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .container { max-width: 700px; margin: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color:#6f6060;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            background-color: #1e1c1c;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            background-color: #6f6060;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Manage Your Events</h1>
+    </header>
+    <nav>
+        <a href="/home_for_organizers">Home</a>
+        <a href="/manage_events">Manage Events</a>
+        <a href="/ticket_sales">Tickets & Sales</a>
+        <a href="#">Reports</a>
+        <a href="/organizer_profile">Profile</a>
+        <a href="/logout_organizer">Logout</a>
+    </nav>
+    <div class="container">
+        <h3>Purchased Tickets</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Buyer Name</th>
+                    <th>Email</th>
+                    <th>Event</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="ticketTableBody">
+                <!-- Dynamic content here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Fetch and display purchased tickets for the organizer
+        function loadTickets() {
+            fetch("http://127.0.0.1:5000/get_tickets")
+                .then(response => response.json())
+                .then(tickets => {
+                    const tableBody = document.getElementById("ticketTableBody");
+                    tableBody.innerHTML = ""; // Clear existing data
+                    tickets.forEach(ticket => {
+                        tableBody.innerHTML += `
+                            <tr>
+                                <td>${ticket.name}</td>
+                                <td>${ticket.email}</td>
+                                <td>${ticket.event_name}</td>
+                                <td>${ticket.quantity}</td>
+                                <td><button onclick="viewTicketDetails('${ticket._id}')">View Details</button></td>
+                            </tr>
+                        `;
+                    });
+                });
+        }
+
+        // View details of a specific ticket
+        function viewTicketDetails(ticketId) {
+            alert(`Viewing details for ticket ID: ${ticketId}`);
+            // Additional functionality can be added to view specific details
+        }
+
+        // Load tickets when the page loads
+        window.onload = loadTickets;
+    </script>
+</body>
+</html>
