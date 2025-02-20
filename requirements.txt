@@ -2,3 +2,5 @@ pip install flask
 python -m venv venv
 pip install pymongo
 pip install flask-login
+pip install flask-session
+./venv/Scripts/activate
